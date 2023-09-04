@@ -5,6 +5,6 @@ module.exports = {
 		.setName('time')
 		.setDescription('Gets current time!'),
 	async execute(interaction) {
-		return interaction.reply(new Date().toISOString());
+		return interaction.reply(`The current time is ${new Date().toLocaleString()}`);
 	},
 };
