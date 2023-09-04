@@ -1,0 +1,7 @@
+{
+    "token": "",
+    "clientId": "",
+    "serverId": "",
+    "permInt": "",
+    "pubKey": ""
+}

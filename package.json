@@ -1,0 +1,23 @@
+{
+  "name": "lcptechbot",
+  "version": "1.0.0",
+  "description": "lcptechbot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "srv": "node server.js",
+    "startall": "concurrently 'npm:start' 'npm:srv'"
+  },
+  "keywords": [
+    "lcptechbot"
+  ],
+  "author": "luis carvalho",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
