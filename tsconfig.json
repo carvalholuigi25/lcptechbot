@@ -1,8 +1,14 @@
 {
-    "include": ["**/*"],
-    "exclude": ["node_modules"],
     "compilerOptions": {
-        "target": "ESNext",
-        "module": "CommonJS"
-    }
+        "lib": ["ESNext"],
+        "target": "ES2022",
+        "module": "CommonJS",
+        "esModuleInterop": false,
+        "strict": true,
+        "alwaysStrict": false,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["**/*"],
+    "exclude": ["node_modules"]
 }

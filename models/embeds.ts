@@ -8,7 +8,7 @@ export interface MyEmbeds {
     description?: string;
     thumbnail?: MyEmbedsThumbnails;
     fields?: MyEmbedsFields[];
-    images?: MyEmbedsImages;
+    image?: MyEmbedsImages;
     timestamp?: string | Date;
     footer?: MyEmbedsFooter;
 }
