@@ -23,7 +23,7 @@ module.exports = {
         // let mdatap = paginate(mdata, 1, 1);
 		const cmdemb = createMyEmbed({
 			title: 'Achievements (Conquistas)'
-			description: `[lusoftdev96's retro achievements](https://retroachievements.org/user/lusoftdev96)`;
+			description: `[lusoftdev96's retro achievements](https://retroachievements.org/user/lusoftdev96)`
 		});
 		return interaction.reply({ embeds: [cmdemb] });
 	},
