@@ -3,10 +3,10 @@ function createMyEmbed(emb) {
 
     return {
         color: emb.color ?? 0x0099ff,
-        title: emb.title ?? '',
-        url: emb.url ?? '',
+        title: emb.title ?? "",
+        url: emb.url ?? "",
         author: emb.author ?? {},
-        description: emb.description ?? '',
+        description: emb.description ?? "",
         thumbnail: emb.thumbnail ?? thumbdef,
         fields: emb.fields ?? [],
         image: emb.image ?? {},

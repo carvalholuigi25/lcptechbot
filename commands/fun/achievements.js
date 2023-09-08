@@ -21,10 +21,11 @@ module.exports = {
         // let mdata = await getAchievementsEarnedBetween(authorization, { userName: "lusoftdev96", fromDate: new Date("2023-08-08"), toDate: new Date() });
         // mdata.sort((a, b) => { return new Date(b.date) - new Date(a.date); });
         // let mdatap = paginate(mdata, 1, 1);
+		
 		const cmdemb = createMyEmbed({
-			title: 'Achievements (Conquistas)'
-			description: `[lusoftdev96's retro achievements](https://retroachievements.org/user/lusoftdev96)`
-		});
+			title: "Achievements (Conquistas)",
+            description: `[lusoftdev96's retro achievements](https://retroachievements.org/user/lusoftdev96)`
+        });
 		return interaction.reply({ embeds: [cmdemb] });
 	},
 };
