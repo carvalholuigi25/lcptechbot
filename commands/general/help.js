@@ -6,7 +6,7 @@ module.exports = {
 		.setName('help')
 		.setDescription('Shows the list of all commands.'),
 	async execute(interaction) {
-        const helpemb = createMyEmbed({
+        const cmdemb = createMyEmbed({
             title: 'Help (Ajuda)',
             description: `
             Lista de comandos:\n
@@ -17,7 +17,7 @@ module.exports = {
             **/testembed** - Isto mostra a mensagem sobre o teste de embed.\n
             **/ping** - Isto mostra a mensagem sobre ping e irá responder pong.\n
             **/achievements** - Isto mostra a mensagem sobre o meu link de retro achievements.`
-        })
-		return interaction.reply({ embeds: [helpemb] });
+        });
+		return interaction.reply({ embeds: [cmdemb] });
 	},
 };
