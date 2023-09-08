@@ -9,6 +9,7 @@ async function deployServer() {
 
     (async () => {
         try {
+            // console.log(`Commands: ${JSON.stringify(commands, null, 2)} `);
             console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
             const data = await rest.put(
@@ -25,12 +26,19 @@ async function deployServer() {
 
 function getCommands() {
     const commands = [];
+    const aryfrms = [".js", ".cjs", ".mjs"];
     const foldersPath = path.join(__dirname, 'commands');
     const commandFolders = fs.readdirSync(foldersPath);
 
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder);
-        const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+        const commandFiles = fs.readdirSync(commandsPath).filter((file, index, aryfrms) => {
+            let value = false;
+            value = aryfrms.some(element => {
+                return file.endsWith(element);
+            });
+            return value;
+        });
 
         for (const file of commandFiles) {
             const filePath = path.join(commandsPath, file);
@@ -50,12 +58,19 @@ function getCommands() {
 function setupClientCMDS(client) {
     client.commands = new Collection();
 
+    const aryfrms = [".js", ".cjs", ".mjs"];
     const foldersPath = path.join(__dirname, 'commands');
     const commandFolders = fs.readdirSync(foldersPath);
 
     for (const folder of commandFolders) {
         const commandsPath = path.join(foldersPath, folder);
-        const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+        const commandFiles = fs.readdirSync(commandsPath).filter((file, index, aryfrms) => {
+            let value = false;
+            value = aryfrms.some(element => {
+                return file.endsWith(element);
+            });
+            return value;
+        });
 
         for (const file of commandFiles) {
             const filePath = path.join(commandsPath, file);
