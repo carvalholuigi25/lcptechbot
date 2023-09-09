@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { clientId, serverId, token } = require('./config.json');
+const { clientId, serverId, token } = process.env;
 const { REST, Routes, Collection, Events } = require('discord.js');
 
 async function deployServer() {
