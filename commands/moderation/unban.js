@@ -9,25 +9,23 @@ module.exports = {
 	async execute(interaction) {
 		const isThisCmdEnabled = false;
 
-        if(!isThisCmdEnabled) return interaction.reply({ content: "This cmd is disabled by mods/admins.", ephemeral: true });
-        if(!interaction.member.hasPermission("UNBAN_MEMBERS")) return interaction.reply({ content: "You cant use that!", ephemeral: true });
-        if(!interaction.guild.me.hasPermission("UNBAN_MEMBERS")) return interaction.reply({ content: 'I dont have the right permissions.', ephemeral: true });
+		if (!isThisCmdEnabled) return interaction.reply({ content: "This cmd is disabled by mods/admins.", ephemeral: true });
 
-		const member = interaction.mentions.members.first() || interaction.options.getMember('target');
+		const member = interaction.options.getMember('target');
 		const reason = interaction.options.getString('reason');
 
-        if(!member) return interaction.reply({ content: 'Cant seem to find this user. Sorry about that :/', ephemeral: true });
-        if(!member.bannable) return interaction.reply({ content: 'This user cant be unbanned. It is either because they are a mod/admin, or their highest role is higher than mine', ephemeral: true });
-		if(member.user.username === interaction.user.username) return interaction.reply({ content: "You cannot unban yourself!", ephemeral: true });
+		if (!member) return interaction.reply({ content: 'Cant seem to find this user. Sorry about that :/', ephemeral: true });
+		if (!member.bannable) return interaction.reply({ content: 'This user cant be unbanned. It is either because they are a mod/admin, or their highest role is higher than mine', ephemeral: true });
+		if (member.user.username === interaction.user.username) return interaction.reply({ content: "You cannot unban yourself!", ephemeral: true });
 
-        member.unban(`${reason}`).catch(error => {
+		member.unban(`${reason}`).catch(error => {
 			console.error(error);
 			interaction.reply({ content: 'There was an error trying to unban this member!', ephemeral: true });
 		});
 
-		return interaction.reply({ 
-			content: `The member ${member.user.username} has been unbanned by ${interaction.user.username} (Reason: ${reason})`, 
-			ephemeral: true 
+		return interaction.reply({
+			content: `The member ${member.user.username} has been unbanned by ${interaction.user.username} (Reason: ${reason})`,
+			ephemeral: true
 		});
 	},
 };

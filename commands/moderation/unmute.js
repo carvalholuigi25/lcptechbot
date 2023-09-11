@@ -1,0 +1,28 @@
+const { SlashCommandBuilder } = require('discord.js');
+
+module.exports = {
+	data: new SlashCommandBuilder()
+		.setName('unmute')
+		.setDescription('Select a member and unmute them.')
+		.addUserOption(option => option.setName('target').setDescription('The member to unmute').setRequired(true)),
+	async execute(interaction) {
+		const isThisCmdEnabled = false;
+
+		if (!isThisCmdEnabled) return interaction.reply({ content: "This cmd is disabled by mods/admins.", ephemeral: true });
+
+		const member = interaction.options.getMember('target');
+		const muteRole = interaction.guild.roles.cache.find((role) => role.name === 'Muted');
+
+		if (!muteRole) return interaction.reply({ content: 'Mute role not found. Please create a role called "Muted"', ephemeral: true });
+		if (!member) return interaction.reply({ content: 'Cant seem to find this user. Sorry about that :/', ephemeral: true });
+		if (!member.bannable) return interaction.reply({ content: 'This user cant be unmuted. It is either because they are a mod/admin, or their highest role is higher than mine', ephemeral: true });
+		if (member.user.username === interaction.user.username) return interaction.reply({ content: "You cannot unmute yourself!", ephemeral: true });
+
+		await member.roles.remove(muteRole);
+
+		return interaction.reply({
+			content: `The member ${member.user.username} has been unmuted by ${interaction.user.username}`,
+			ephemeral: true
+		});
+	},
+};
