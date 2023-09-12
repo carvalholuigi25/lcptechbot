@@ -13,7 +13,7 @@ module.exports = {
         const channel = interaction.client.channels.cache.find(chn => chn.name === "questões-e-sugestões");
         const author = interactionUser.user.username;
 
-        channel.send(`${message}\r\nSuggested by: ${author}`);
+        channel.send(`${message}\r\nAuthor: ${author}`);
 
         const cmdemb = createMyEmbed({
             title: 'Suggestion (Sugestão)',

@@ -15,7 +15,7 @@ module.exports = {
         const channel = interaction.client.channels.cache.find(chn => chn.name === "reports");
         const author = interactionUser.user.username;
 
-        channel.send(`${message}\r\nReported by: ${author}`);
+        channel.send(`${message}\r\nAuthor: ${author}`);
 
         const cmdemb = createMyEmbed({
             title: 'Report (Reportar)',

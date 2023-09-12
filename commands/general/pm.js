@@ -13,7 +13,7 @@ module.exports = {
         const message = interaction.options.getString('message');
         const author = interactionUser.user.username;
 
-        interaction.client.users.send(member.id, `${message}\r\nSent PM by: ${author}`);
+        interaction.client.users.send(member.id, `${message}\r\nAuthor: ${author}`);
 
         const cmdemb = createMyEmbed({
             title: 'PM (Private Message)',
