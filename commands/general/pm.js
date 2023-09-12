@@ -8,10 +8,12 @@ module.exports = {
 		.addUserOption(option => option.setName('target').setDescription('Write the username here').setRequired(true))
         .addStringOption(option => option.setName('message').setDescription('Write the message here').setRequired(true)),
 	async execute(interaction) {
+      const interactionUser = await interaction.guild.members.fetch(interaction.user.id);
         const member = interaction.options.getMember('target');
         const message = interaction.options.getString('message');
+        const author = interactionUser.user.username;
 
-        interaction.client.users.send(member.id, message);
+        interaction.client.users.send(member.id, `${message}\r\nSent PM by: ${author}`);
 
         const cmdemb = createMyEmbed({
             title: 'PM (Private Message)',
